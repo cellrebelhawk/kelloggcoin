@@ -7,8 +7,8 @@
 # with no from_user are from the "ICO" (Initial Coin Offering)
 
 blockchain = [
-  { "from_user" => nil, "to_user" => "ben", "amount" => 20000 },
-  { "from_user" => nil, "to_user" => "brian", "amount" => 20000 },
+  { "from_user" => "ico", "to_user" => "ben", "amount" => 20000 },
+  { "from_user" => "ico", "to_user" => "brian", "amount" => 20000 },
   { "from_user" => "ben", "to_user" => "evan", "amount" => 9000 },
   { "from_user" => "brian", "to_user" => "anthony", "amount" => 7000 },
   { "from_user" => "evan", "to_user" => "anthony", "amount" => 400 },
@@ -28,6 +28,7 @@ blockchain = [
 
 # 👇👇👇 Your code HERE 👇👇👇
 
+ico = 40000
 ben = 0
 brian = 0
 evan = 0
@@ -45,6 +46,8 @@ to_user = blockchain[index]["to_user"]
 amount = blockchain[index]["amount"]
 
 case from_user
+when "ico"
+  ico = ico - amount
 when "ben"
   ben = ben - amount
 when "brian"
@@ -74,3 +77,14 @@ puts "Ben's KelloggCoin balance is #{ben}"
 puts "Brian's KelloggCoin balance is #{brian}"
 puts "Evan's KelloggCoin balance is #{evan}"
 puts "Anthonys's KelloggCoin balance is #{anthony}"
+
+
+#puts blockchain[0]["from_user"]
+#puts blockchain[0]["to_user"]
+#puts blockchain[0]["amount"]
+
+#p blockchain[3]["from_user"]
+
+# ben_balance = blockchain[]
+
+#p blockchain[index]["from_user"]

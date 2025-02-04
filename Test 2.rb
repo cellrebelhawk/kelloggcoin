@@ -7,8 +7,8 @@
 # with no from_user are from the "ICO" (Initial Coin Offering)
 
 blockchain = [
-  { "from_user" => nil, "to_user" => "ben", "amount" => 20000 },
-  { "from_user" => nil, "to_user" => "brian", "amount" => 20000 },
+  { "from_user" => "ICO", "to_user" => "ben", "amount" => 20000 },
+  { "from_user" => "ICO", "to_user" => "brian", "amount" => 20000 },
   { "from_user" => "ben", "to_user" => "evan", "amount" => 9000 },
   { "from_user" => "brian", "to_user" => "anthony", "amount" => 7000 },
   { "from_user" => "evan", "to_user" => "anthony", "amount" => 400 },
@@ -28,10 +28,15 @@ blockchain = [
 
 # 👇👇👇 Your code HERE 👇👇👇
 
+ico = 40000
 ben = 0
 brian = 0
 evan = 0
 anthony = 0
+
+
+#p blockchain[0]["from_user"]
+#p blockchain[index]["from_user"]
 
 index = 0
 
@@ -41,36 +46,37 @@ loop do
   end 
   
 from_user = blockchain[index]["from_user"]
-to_user = blockchain[index]["to_user"]
 amount = blockchain[index]["amount"]
 
-case from_user
-when "ben"
+if from_user == "ico"
+  ico = ico - amount
+  
+elsif from_user == "ben"
   ben = ben - amount
-when "brian"
+elsif from_user == "brian"
   brian = brian - amount
-when "evan"
+elsif from_user == "evan"
   evan = evan - amount
-when "anthony"
+elsif from_user == "anthony"
   anthony = anthony- amount
-end
-
-case to_user
-when "ben"
-  ben = ben + amount
-when "brian"
-  brian = brian + amount
-when "evan"
-  evan = evan + amount
-when "anthony"
-  anthony = anthony + amount
 end
 
   index = index + 1
 
 end
 
-puts "Ben's KelloggCoin balance is #{ben}"
-puts "Brian's KelloggCoin balance is #{brian}"
-puts "Evan's KelloggCoin balance is #{evan}"
-puts "Anthonys's KelloggCoin balance is #{anthony}"
+puts ico
+puts ben
+puts brian
+puts evan
+puts anthony
+
+#puts blockchain[0]["from_user"]
+#puts blockchain[0]["to_user"]
+#puts blockchain[0]["amount"]
+
+#p blockchain[3]["from_user"]
+
+# ben_balance = blockchain[]
+
+#p blockchain[index]["from_user"]
